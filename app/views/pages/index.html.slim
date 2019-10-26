@@ -1,10 +1,10 @@
-h1 Hello world
-p Welcome to my new rails blog v0.1 hahaha!. Here you can find my own experience with web development and other stuffs or hobbies that like me, as running or others
-= link_to 'about me', aboutme_path
+section.section
+  .container.is-mobile 
+    .level.is-mobile
+      .level-left
+        h3.is-size-4 Last posts
+      .level-right
+        = link_to '+ new article', new_article_path, class: 'is-primary button'
 
-hr
-
-- Article.last(10).each do |article|
-  article
-    h2 = article.title
-    p = article.content
+    - @articles.each do |article|
+      = render 'articles/article_preview', article: article

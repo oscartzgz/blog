@@ -1,0 +1,20 @@
+section.section
+  small = link_to 'regresar', root_path, class: 'button is-small'
+  h1.title New Article
+
+  br
+  = form_with model: @article, id: :new_article_form do |f|
+    = f.label :title
+    .control
+      = f.text_field :title, class: 'input'
+      p.help
+    br
+    = f.label :content
+    .control
+      = f.text_area :content, rows: 10, class: 'textarea'
+    br
+    .control
+      .level.is-mobile
+        .level-left
+        .level-right
+          = f.submit class: 'button is-primary'

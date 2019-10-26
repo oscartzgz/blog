@@ -1,0 +1,11 @@
+article.tile
+  h2.title = article.title
+  h3.subtitle.is-size-6 Updated #{article.updated_at.strftime('%d/%B/%Y')}
+  / = link_to 'edit', edit_article_path(article), class: 'button is-secondary is-small'
+  p = article.content
+
+  .level.is-mobile
+    .level-left
+    .level-right
+      = link_to 'View', article, class: 'is-link'
+  br
