@@ -1,12 +1,21 @@
-h1 Edit Article
-small = link_to 'regresar', root_path, class: 'button is-small'
+section.section
+  small = link_to 'regresar', root_path, class: 'button is-small'
+  h1.title Edit Article
 
-br
-= form_with model: @article, id: :edit_article_form do |f|
-  = f.label :title
-  = f.text_field :title
   br
-  = f.label :content
-  = f.text_area :content
-  br
-  = f.submit
+  = form_with model: @article, id: :edit_article_form do |f|
+    = f.label :title
+    .control
+      = f.text_field :title, class: 'input'
+      p.help
+    br
+    = f.label :content
+    .control
+      = f.text_area :content, rows: 10, class: 'textarea'
+      p.help
+    br
+    .control
+      .level.is-mobile
+        .level-left
+        .level-right
+          = f.submit class: 'button is-primary'

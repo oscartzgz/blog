@@ -23,6 +23,7 @@ import 'css/styles.scss'
 
 
 document.addEventListener("turbolinks:load", function() {
+  FontAwesome.dom.i2svg();
 
   let new_article_form = document.getElementById('new_article_form')
   let edit_article_form = document.getElementById('edit_article_form')
