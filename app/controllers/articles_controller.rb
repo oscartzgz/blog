@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def show
   end
@@ -26,6 +26,11 @@ class ArticlesController < ApplicationController
     else
       render json: @article.erros, status: :unprocesable_entity
     end
+  end
+
+  def destroy
+    @article.delete
+    head :no_content
   end
 
   private

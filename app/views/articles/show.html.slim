@@ -1,13 +1,14 @@
 section.section
-  h1.title = @article.title
-  small Actualizado el #{@article.updated_at.strftime('%d/%B/%Y')}
-  
-  p = @article.content
-
   .container
     .level.is-mobile
       .level-left
         = link_to root_path, class: 'button is-secondary is-outlined' do
           i.fa.fa-home
       .level-right
+        = link_to 'Delete', @article, remote: true, method: :delete, data: { confirm: '¿Deseas eliminar este articulo?' }, class: 'button is-danger is-outlined'
         = link_to 'Edit', edit_article_path(@article), class: 'button is-primary is-outlined'
+
+  h1.title = @article.title
+  small Actualizado el #{@article.updated_at.strftime('%d/%B/%Y')}
+  
+  p = @article.content
