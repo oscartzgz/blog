@@ -11,8 +11,10 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
+      flash[:notice] = "El artículo fue creado <a href='#{article_path(@article)}'>Ver</a>".html_safe
       render json: @article, status: :created
     else
+      flash[:error] = "No se pudo crear la publicación"
       render json: @article.errors, status: :unprocessable_entity
     end
   end
