@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   
   def show
@@ -24,8 +25,10 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)  
+      flash[:notice] = "El artículo fue actualizado <a href='#{article_path(@article)}'>Ver</a>".html_safe
       render json: @article, status: :ok
     else
+      flash[:error] = "No se pudo actualizar la publicación"
       render json: @article.erros, status: :unprocesable_entity
     end
   end
