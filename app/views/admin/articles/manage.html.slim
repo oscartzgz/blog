@@ -1,24 +1,25 @@
 section.section
-  .level.is-mobile
-      .level-left
-        h1.is-size-3 Last posts
-      .level-right
-        = link_to '+ new', new_admin_article_path, class: 'is-primary button'
+  .container
+    .level.is-mobile
+        .level-left
+          h1.is-size-3 Last posts
+        .level-right
+          = link_to '+ new', new_admin_article_path, class: 'is-primary button'
 
-  / h1 Manage Articles Section
-  table.table.is-responsive
-    thead
-      tr
-        / th ID
-        th Title
-        th Created
-        / th Updated
-    tbody
-      - @articles.each do |article|
+    / h1 Manage Articles Section
+    table.table.is-fullwidth.table-selectable
+      thead
         tr
-          / td = article.id
-          td = link_to article.title, edit_admin_article_path(article)
-          td
-            small = article.created_at.strftime('%d/%b/%y')
-          / td = article.updated_at()
-  
+          / th ID
+          th Title
+          th Created
+          / th Updated
+      tbody
+        - @articles.each do |article|
+          tr
+            / td = article.id
+            td = link_to article.title, edit_admin_article_path(article)
+            td
+              small = article.created_at.strftime('%d/%b/%y')
+            / td = article.updated_at()
+    
