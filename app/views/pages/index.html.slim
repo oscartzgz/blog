@@ -1,10 +1,6 @@
 section.section
-  .container.is-mobile 
-    .level.is-mobile
-      .level-left
-        h3.is-size-4 Last posts
-      .level-right
-        = link_to '+ new article', new_article_path, class: 'is-primary button'
-
-    - @articles.each do |article|
-      = render 'articles/article_preview', article: article
+  .container.is-mobile
+    .columns.is-multiline
+      - @articles.each do |article|
+        .column.is-full.is-6-desktop
+          = render 'articles/article_preview', article: article

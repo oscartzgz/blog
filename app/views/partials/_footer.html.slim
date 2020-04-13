@@ -1,4 +1,16 @@
 footer.footer
-  p 
-    | Developed by 
-    a href="https://github.com/oscartzgz" @oscartzgz
+  .columns.is-multiline
+    .column.has-text-centered
+      h3.has-text-grey Blog powered by:
+    .column
+      .columns.is-mobile.has-text-centered.is-multiline
+        .column.is-full-dektop
+          a href="https://rubyonrails.org/"
+            img.logo-tech src="#{asset_path('rails-logo.svg')}" alt="rails-logo"
+        .column.is-full-dektop
+          a href="https://bulma.io"
+            img.logo-tech src="#{asset_path('bulma-logo.png')}" alt="bulma-logo"
+      hr
+    .column.is-full.has-text-centered.has-text-grey-light
+      | Developed by 
+      a href="https://github.com/oscartzgz" @oscartzgz

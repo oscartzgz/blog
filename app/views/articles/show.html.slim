@@ -1,14 +1,19 @@
-section.section
-  .container
-    .level.is-mobile
-      .level-left
-        = link_to root_path, class: 'button is-secondary is-outlined' do
-          i.fa.fa-home
-      .level-right
-        = link_to 'Delete', @article, remote: true, method: :delete, data: { confirm: '¿Deseas eliminar este articulo?' }, class: 'button is-danger is-outlined'
-        = link_to 'Edit', edit_article_path(@article), class: 'button is-primary is-outlined'
+section.section.full-article-container
+  = render 'partials/breadcrumbs'
 
-  h1.title = @article.title
-  small Actualizado el #{@article.updated_at.strftime('%d/%B/%Y')}
-  
-  p = @article.content
+  .container
+    .columns.is-multiline
+      .column.is-full.is-2-desktop.has-text-right.has-text-centered-desktop
+        .columns.is-mobile.is-multiline.is-centered
+
+          .column.is-narrow.is-full-desktop
+            button.button.is-active.is-outlined.is-size-5-mobile.is-size-4
+              .fas.fa-share-alt
+          .column.is-narrow.is-full-desktop
+            button.button.is-hovered.is-outlined.is-size-5-mobile.is-size-4
+              .far.fa-bookmark
+              
+      .column.is-full-mobile.is-full-tablet.is-10-desktop
+        h1.title = @article.title
+        h2.subtitle Update #{@article.updated_at.strftime('%d/%b/%y')}
+        .content = @article.content

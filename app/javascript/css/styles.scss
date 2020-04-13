@@ -1,6 +1,31 @@
 @import 'bulma-scss/bulma.scss';
 
 
+.article-preview {
+  margin-bottom: 1.5em;
+  .card {
+    overflow: hidden;
+
+    .content {
+      position: relative;
+      height: 95px;
+      overflow: hidden;
+
+      .content-bottom-gradient-layer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: linear-gradient(to top, white, transparent, transparent, transparent);
+      }
+    }
+  }
+}
+
+.breadcrumbs-container {
+  padding: 1em 0  3em 0;
+}
 
 .notification {
   @include mobile{
@@ -12,6 +37,17 @@
   }
   animation: notification-anim .5s ease-in-out;
 }
+
+.footer {
+  .logo-tech {
+    height: 30px;
+  }
+}
+
+.full-article-container {
+  padding-bottom: 7em;
+}
+
 
 @keyframes notification-anim {
   0% {

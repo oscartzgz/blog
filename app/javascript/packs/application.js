@@ -10,7 +10,7 @@ require("channels")
 
 import {renderFormErrors} from './render_form_errors'
 import {renderFlashMessage} from './render_flash_message'
-
+import {toggleActiveNavBar} from './bulma_navbar'
 import 'css/styles.scss'
 
 
@@ -20,26 +20,3 @@ import 'css/styles.scss'
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-document.addEventListener("turbolinks:load", function() {
-  FontAwesome.dom.i2svg()
-  document.addEventListener('ajax:error', (event, request) => renderFlashMessage(event))
-  document.addEventListener('ajax:success', (event, request) => renderFlashMessage(event))
-
-  let new_article_form = document.getElementById('new_article_form')
-  let edit_article_form = document.getElementById('edit_article_form')
-
-  if (new_article_form) {
-    new_article_form.addEventListener("ajax:success", (event) => alert('Article was created.'))
-    new_article_form.addEventListener("ajax:error", function(event) {
-      renderFormErrors( new_article_form, event.detail[0] )
-    })
-  }
-
-  if ( edit_article_form ) {
-    edit_article_form.addEventListener("ajax:success", (event) => alert('Article was updated.'))
-    edit_article_form.addEventListener("ajax:error", (event) => alert(event.details))
-  }
-
-})
-

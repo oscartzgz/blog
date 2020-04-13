@@ -1,9 +1,9 @@
 section.section
-  small = link_to 'regresar', root_path, class: 'button is-small'
-  h1.title Edit Article
+  small = link_to 'regresar', admin_root_path, class: 'button is-small'
+  h1.title New Article
 
   br
-  = form_with model: @article, id: :edit_article_form do |f|
+  = form_with model: @article, url: admin_articles_path, id: :new_article_form do |f|
     = f.label :title
     .control
       = f.text_field :title, class: 'input'

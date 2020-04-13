@@ -1,11 +1,11 @@
-article.tile
-  h2.title = article.title
-  h3.subtitle.is-size-6 Updated #{article.updated_at.strftime('%d/%B/%Y')}
-  / = link_to 'edit', edit_article_path(article), class: 'button is-secondary is-small'
-  p = article.content
-
-  .level.is-mobile
-    .level-left
-    .level-right
-      = link_to 'View', article, class: 'is-link'
-  br
+article.article-preview
+  .card
+    .card-content
+      = link_to article do
+        h2.title = article.title
+      h3.subtitle.is-size-7 Updated #{article.updated_at.strftime('%d/%b/%y')}
+      / = link_to 'edit', edit_article_path(article), class: 'button is-secondary is-small'
+      .content
+        .content-bottom-gradient-layer
+        p = truncate article.content, length: 200
+      = link_to 'View Article', article, class: 'button is-primary is-small is-rounded is-fullwidth'

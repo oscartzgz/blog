@@ -1,0 +1,28 @@
+@import 'bulma-scss/bulma.scss';
+
+
+
+.notification {
+  @include mobile{
+    position: fixed;
+    top: .3em;
+    left: .3em;
+    right: .3em;
+    z-index: 999;
+  }
+  animation: notification-anim .5s ease-in-out;
+}
+
+@keyframes notification-anim {
+  0% {
+    display: none;
+    opacity: 0;
+  } 
+  1%{
+    display: block;
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
