@@ -64,3 +64,4 @@ Dockerfile
 # IGNORE OUR OWN FILES FOR DOCKER
 docker/
 !docker/development/entrypoint.sh
+!docker/production/webapp.conf
