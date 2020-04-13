@@ -13,6 +13,7 @@ import {renderFlashMessage} from './render_flash_message'
 import {selectableTable} from './selectable-table'
 import {toggleActiveNavBar} from './bulma_navbar'
 import 'css/styles.scss'
+import { bulmaTabs } from './bulma_tabs'
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -25,6 +26,7 @@ import 'css/styles.scss'
 document.addEventListener("turbolinks:load", function() {
   FontAwesome.dom.i2svg()
   selectableTable()
+  bulmaTabs()
   document.addEventListener('ajax:error', (event, request) => renderFlashMessage(event))
   document.addEventListener('ajax:success', (event, request) => renderFlashMessage(event))
 

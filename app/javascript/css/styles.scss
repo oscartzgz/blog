@@ -62,3 +62,26 @@
     opacity: 1;
   }
 }
+
+// .navbar-menu.is-active {
+//   animation: navAnim .2s ease-in-out;
+// }
+
+.tab-content {
+  animation: navAnim .2s ease-in-out;
+}
+
+@keyframes navAnim {
+0% {
+  display: none;
+  opacity: 0;
+  height: 0;
+}
+1% {
+  display: block;
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+}
