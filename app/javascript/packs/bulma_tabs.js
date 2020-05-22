@@ -5,7 +5,7 @@ export const bulmaTabs = () => {
   if ($tabs.length > 0 ) {
     // first initialize
     // Hide all
-    let elementsToHide = document.querySelectorAll('.tab-content');
+    let elementsToHide = document.querySelectorAll('. tab-content');
     elementsToHide.forEach( element => {
       element.style.display = 'none';
     });
