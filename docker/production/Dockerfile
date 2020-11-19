@@ -17,8 +17,9 @@ WORKDIR $RAILS_ROOT
 # Adding gems
 COPY Gemfile Gemfile.lock ./
 RUN bundle install --jobs 20 --without development test --deployment
-# COPY package.json yarn.lock ./
+COPY package.json yarn.lock ./
 # RUN yarn install --check-files --pure-lockfile --production
+RUN yarn install
 
 # Adding project files
 COPY . .
