@@ -6,6 +6,8 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
   web:
     env_file: ./docker/production/.env
+    # environment:
+    #   - SECRET_KEY_BASE
     build:
       context: .
       dockerfile: ./docker/development/Dockerfile

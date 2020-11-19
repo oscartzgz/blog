@@ -1,5 +1,7 @@
 FROM ruby:2.6.4-slim
 
+ARG SECRET_KEY_BASE
+RUN echo $SECRET_KEY_BASE
 
 RUN apt-get update -qq && apt-get install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
