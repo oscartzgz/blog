@@ -19,12 +19,8 @@ services:
     build:
       context: .
       dockerfile: ./docker/production/Dockerfile
-      args:
-        - SECRET_KEY_BASE
     environment: 
       - SECRET_KEY_BASE
-      - RAILS_ENV
-      - RACK_ENV
     # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./:/app

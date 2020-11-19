@@ -5,6 +5,7 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   web:
+    env_file: ./docker/production/.env
     build:
       context: .
       dockerfile: ./docker/development/Dockerfile

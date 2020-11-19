@@ -12,6 +12,11 @@ ENV RAILS_ROOT /var/www/blog
 ENV RAILS_ENV production
 ENV RACK_ENV production
 ARG SECRET_KEY_BASE
+
+RUN echo $RAILS_ENV
+RUN echo $RACK_ENV
+RUN echo $SECRET_KEY_BASE
+
 RUN mkdir -p $RAILS_ROOT
 
 # Set working directory, where the commands will be ran:

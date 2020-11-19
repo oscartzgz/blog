@@ -1,5 +1,6 @@
 FROM ruby:2.6.4-slim
 
+
 RUN apt-get update -qq && apt-get install curl -y
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
