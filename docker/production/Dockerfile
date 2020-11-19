@@ -11,6 +11,7 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs ya
 ENV RAILS_ROOT /var/www/blog
 ENV RAILS_ENV production
 ENV RACK_ENV production
+ARG SECRET_KEY_BASE
 RUN mkdir -p $RAILS_ROOT
 
 # Set working directory, where the commands will be ran:
@@ -21,7 +22,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --jobs 20 --without development test --deployment
 COPY package.json yarn.lock ./
 # RUN yarn install --check-files --pure-lockfile --production
-RUN yarn install
+RUN yarn install --production
 
 # Adding project files
 COPY . .
