@@ -14,14 +14,10 @@ RUN mkdir -p $RAILS_ROOT
 # Set working directory, where the commands will be ran:
 WORKDIR $RAILS_ROOT
 
-# Setting env up
-# ENV RAILS_ENV=${RAILS_ENV}
-# ENV RACK_ENV=${RACK_ENV}
-
 # Adding gems
-COPY Gemfile Gemfile.lock .
+COPY Gemfile Gemfile.lock ./
 RUN bundle install -j 10 --retry 5 -without development test -deployment
-COPY package.json yarn.lock /app/
+COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile --production
 
 # Adding project files
