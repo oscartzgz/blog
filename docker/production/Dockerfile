@@ -19,9 +19,10 @@ WORKDIR $RAILS_ROOT
 # ENV RACK_ENV=${RACK_ENV}
 
 # Adding gems
-COPY Gemfile Gemfile
-COPY Gemfile.lock Gemfile.lock
-RUN bundle install --jobs 20 --retry 5 --without development test
+COPY Gemfile Gemfile.lock .
+RUN bundle install -j 10 --retry 5 -without development test -deployment
+COPY package.json yarn.lock /app/
+RUN yarn install --pure-lockfile --production
 
 # Adding project files
 COPY . .
