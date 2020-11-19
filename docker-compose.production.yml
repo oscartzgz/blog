@@ -11,6 +11,7 @@ services:
       - "80:80"
     networks:
       - blog
+    restart: always
 
   app:
     restart: always
@@ -25,6 +26,7 @@ services:
     #   - "80:3000"
     depends_on:
       - db
+    restart: always
     stdin_open: true
     tty: true
   
@@ -37,6 +39,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
     networks: 
       - cajita_api
+    restart: always
 
 volumes:
   postgres-data:
