@@ -11,8 +11,8 @@ RUN mkdir -p $RAILS_ROOT
 WORKDIR $RAILS_ROOT
 
 # Setting env up
-ENV RAILS_ENV
-ENV RACK_ENV
+# ENV RAILS_ENV=${RAILS_ENV}
+# ENV RACK_ENV=${RACK_ENV}
 
 # Adding gems
 COPY Gemfile Gemfile
