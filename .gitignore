@@ -103,6 +103,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
+docker/production/.env
 .env
 .env.test
 

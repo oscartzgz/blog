@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.7'
 services:
   web:
     build:
@@ -19,6 +19,10 @@ services:
     build:
       context: .
       dockerfile: ./docker/production/Dockerfile
+    environment: 
+      - SECRET_KEY_BASE
+      - RAILS_ENV
+      - RACK_ENV
     # command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - ./:/app
@@ -28,7 +32,6 @@ services:
       - db
     networks:
       - blog
-    restart: always
     stdin_open: true
     tty: true
   
