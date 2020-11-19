@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: ./docker/production/Dockerfile
       args:
-        SECRET_KEY_BASE
+        - SECRET_KEY_BASE
     environment: 
       - SECRET_KEY_BASE
       - RAILS_ENV
