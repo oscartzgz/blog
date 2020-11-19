@@ -25,7 +25,7 @@ RUN yarn install --production
 
 # Adding project files
 COPY . .
-RUN export SECRET_KEY_BASE=$(rails secret)
+ARG SECRET_KEY_BASE
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
