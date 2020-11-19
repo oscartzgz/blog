@@ -11,13 +11,6 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs ya
 ENV RAILS_ROOT /var/www/blog
 ENV RAILS_ENV production
 ENV RACK_ENV production
-ARG SECRET_KEY_BASE
-ENV SECRET_KEY_BASE $SECRET_KEY_BASE
-
-RUN echo $RAILS_ENV
-RUN echo $RACK_ENV
-RUN echo $SECRET_KEY_BASE
-
 RUN mkdir -p $RAILS_ROOT
 
 # Set working directory, where the commands will be ran:
@@ -32,6 +25,7 @@ RUN yarn install --production
 
 # Adding project files
 COPY . .
+RUN export SECRET_KEY_BASE=$(rails secret)
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
