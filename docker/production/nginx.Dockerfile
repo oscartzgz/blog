@@ -19,7 +19,7 @@ COPY ./docker/production/nginx.conf /tmp/docker.nginx
 
 # substitute variable references in the Nginx config template for real values from the environment
 # put the final config in its place
-RUN envsubst '$RAILS_ROOT' < /tmp/docker.nginx > /etc/nginx/conf.d/default.conf
+RUN envsubst '$RAILS_ROOT' < /tmp/webapp.conf > /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
