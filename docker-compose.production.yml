@@ -21,16 +21,12 @@ services:
       dockerfile: ./docker/production/Dockerfile
       args:
         - SECRET_KEY_BASE=${SECRET_KEY_BASE}
-    ports:
-      - "3000:3000"
     volumes:
       - ./:/app
     depends_on:
       - db
     networks:
       - blog
-    stdin_open: true
-    tty: true
   
   db:
     image: postgres:12.3
