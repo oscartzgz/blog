@@ -1,6 +1,7 @@
-version: '3.7'
+version: '3'
 services:
   web:
+    restart: always
     build:
       context: .
       dockerfile: docker/production/nginx.Dockerfile
@@ -9,9 +10,6 @@ services:
       - app
     ports:
       - "80:80"
-    networks:
-      - blog
-    restart: always
 
   app:
     restart: always
@@ -25,23 +23,16 @@ services:
       - ./:/app
     depends_on:
       - db
-    networks:
-      - blog
   
   db:
+    restart: always
     image: postgres:12.3
     env_file: docker/production/.env
     ports:
       - "5432"
     volumes:
       - postgres-data:/var/lib/postgresql/data
-    networks: 
-      - blog
-    restart: always
 
 volumes:
-  postgres-data:
-
-networks:
-  blog:
+  postgres_data: {}
 
