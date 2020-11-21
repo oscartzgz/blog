@@ -11,6 +11,8 @@ RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs ya
 ENV RAILS_ROOT /var/www/blog
 ENV RAILS_ENV production
 ENV RACK_ENV production
+ENV NODE_ENV=production RAILS_ENV=production
+ENV RAILS_LOG_TO_STDOUT=true
 RUN mkdir -p $RAILS_ROOT
 
 # Set working directory, where the commands will be ran:
