@@ -33,8 +33,6 @@ services:
       - "5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - blog
 
 volumes:
   postgres_data: {}
