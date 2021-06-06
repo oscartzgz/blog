@@ -29,7 +29,7 @@ RUN yarn install --pure-lockfile --production
 # Adding project files
 COPY . .
 RUN mkdir -p tmp/pids/
-ARG SECRET_KEY_BASE
+
 RUN bundle exec rake assets:precompile
 
 EXPOSE 3000
