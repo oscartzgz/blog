@@ -1,11 +1,11 @@
 version: '3.7'
 services:
   db:
-    image: postgres
+    image: postgres:12
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
   web:
-    env_file: ./docker/production/.env
+    # env_file: ./docker/development/.env
     # environment:
     #   - SECRET_KEY_BASE
     build:
