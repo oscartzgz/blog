@@ -10,7 +10,7 @@ services:
     depends_on: 
       - app
     ports:
-      - "8000:3000"
+      - "8000:80"
 
   app:
     restart: always
