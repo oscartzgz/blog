@@ -1,4 +1,4 @@
-FROM ruby:2.6.4-slim
+FROM ruby:3.0.1
 
 # Install dependencies
 RUN apt-get update -qq && apt-get install curl -y
