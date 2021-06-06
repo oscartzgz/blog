@@ -28,7 +28,7 @@ services:
     image: postgres:13.1
     env_file: docker/production/.env
     environment:
-      - POSTGRES_PASSWORD=${API_POSTGRES_PASSWORD}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432"
     volumes:
